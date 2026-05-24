@@ -245,6 +245,48 @@
 
         </div>
 
+        <!-- ພາກສ່ວນຄົ້ນຫາຂໍ້ມູນພະນັກງານ (Data Search Section) -->
+        <div class="mt-12 bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-3">
+                    <i class="fa-solid fa-user-nurse text-blue-600"></i> 
+                    ຄົ້ນຫາຂໍ້ມູນພະນັກງານສາທາລະນະສຸກ
+                </h2>
+                <div class="flex w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:w-64">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                        </div>
+                        <input type="text" id="searchInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="ພິມຊື່ ຫຼື ລະຫັດ...">
+                    </div>
+                    <button onclick="openModal()" class="flex-shrink-0 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-plus"></i> ເພີ່ມລາຍຊື່ໃໝ່
+                    </button>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto rounded-lg border border-gray-200">
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">ຊື່ ແລະ ນາມສະກຸນ</th>
+                            <th scope="col" class="px-4 py-3">ລະຫັດພະນັກງານ</th>
+                            <th scope="col" class="px-4 py-3">ເພດ</th>
+                            <th scope="col" class="px-4 py-3">ສະຖານທີ່ (HC)</th>
+                            <th scope="col" class="px-4 py-3">ເມືອງ</th>
+                            <th scope="col" class="px-4 py-3">ແຂວງ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hw-table-body">
+                        <!-- ຂໍ້ມູນຈະຖືກສະແດງຢູ່ນີ້ຜ່ານ JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 text-xs text-gray-400 text-right">
+                * ສະແດງຂໍ້ມູນເບື້ອງຕົ້ນຈາກໄຟລ໌ Excel (CSV)
+            </div>
+        </div>
+
         <!-- Contact Section -->
         <div class="mt-12 bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
             <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
@@ -443,5 +485,205 @@
         </div>
     </footer>
 
+    <!-- Modal ສຳລັບເພີ່ມຂໍ້ມູນໃໝ່ -->
+    <div id="addStaffModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4 transition-opacity">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md mx-auto overflow-hidden">
+            <div class="bg-blue-600 px-6 py-4 flex justify-between items-center text-white">
+                <h3 class="text-lg font-bold">ເພີ່ມລາຍຊື່ພະນັກງານໃໝ່</h3>
+                <button onclick="closeModal()" class="text-white/80 hover:text-white">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <form id="addStaffForm" onsubmit="handleAddStaff(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block mb-1 text-sm font-medium text-gray-900">ຊື່ ແລະ ນາມສະກຸນ <span class="text-red-500">*</span></label>
+                    <input type="text" id="newName" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຕົວຢ່າງ: ນາງ ໃຈດີ...">
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm font-medium text-gray-900">ລະຫັດພະນັກງານ (HW ID) <span class="text-red-500">*</span></label>
+                    <input type="text" id="newId" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຕົວຢ່າງ: 101001">
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm font-medium text-gray-900">ເພດ</label>
+                    <select id="newGender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="Female">ຍິງ (Female)</option>
+                        <option value="Male">ຊາຍ (Male)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block mb-1 text-sm font-medium text-gray-900">ສະຖານທີ່ (HC)</label>
+                    <input type="text" id="newFacility" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຊື່ສຸກສາລາ...">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-1 text-sm font-medium text-gray-900">ເມືອງ</label>
+                        <input type="text" id="newDistrict" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຊື່ເມືອງ...">
+                    </div>
+                    <div>
+                        <label class="block mb-1 text-sm font-medium text-gray-900">ແຂວງ</label>
+                        <input type="text" id="newProvince" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຊື່ແຂວງ...">
+                    </div>
+                </div>
+                <div class="pt-4 flex justify-end gap-2">
+                    <button type="button" onclick="closeModal()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">ຍົກເລີກ</button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">ບັນທຶກຂໍ້ມູນ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script ສຳລັບລະບົບຄົ້ນຫາຂໍ້ມູນ (ຝັງຂໍ້ມູນຈາກໄຟລ໌ CSV) -->
+    <script>
+        // ຂໍ້ມູນພະນັກງານສາທາລະນະສຸກເບື້ອງຕົ້ນ
+        const defaultHealthWorkers = [
+            { province: "Phongsaly", district: "Samphanh", facility: "HC Namhang", hwId: "101002", name: "ນາງຈັນມະນີ ວື", gender: "Female" },
+            { province: "Phongsaly", district: "Samphanh", facility: "HC Namhang", hwId: "101003", name: "ນາງ ພິມແກ້ວ ສິລິຄຳ", gender: "Female" },
+            { province: "Phongsaly", district: "Samphanh", facility: "HC Laoleo", hwId: "102004", name: "ນາງ ຈັນສີ ຜົມມະສິງ", gender: "Female" },
+            { province: "Phongsaly", district: "Samphanh", facility: "HC Laoleo", hwId: "102006", name: "ນາງ ຈັນສະຫວັນ", gender: "Female" },
+            { province: "Phongsaly", district: "Samphanh", facility: "HC Sanamha", hwId: "104012", name: "ນາງ ໄສ ສົມະນີ", gender: "Female" },
+            { province: "Phongsaly", district: "Samphanh", facility: "HC Sanamha", hwId: "104013", name: "ນາງ ສົມພັດ ອຸດວງວິໄລ", gender: "Female" },
+            { province: "Salavan", district: "Salavan", facility: "HC Houaylat", hwId: "411432", name: "ນາງ ແສງຫຼ້າ ໄຊຍະວົງ", gender: "Female" },
+            { province: "Salavan", district: "Salavan", facility: "HC Nadonkhouang", hwId: "411441", name: "ນາງ ຄຳສັກສິດ ຈັນທະກຸມມານ", gender: "Female" },
+            { province: "Salavan", district: "Salavan", facility: "HC Nadonkhouang", hwId: "411442", name: "ນາງ ທິບພະຈັນ ອະນຸສັກ", gender: "Female" },
+            { province: "Salavan", district: "Salavan", facility: "HC Napho", hwId: "411451", name: "ນາງ ຈັນສະໝອນ ໄກຍະກອນ", gender: "Female" },
+            { province: "Salavan", district: "Salavan", facility: "HC Napho", hwId: "411452", name: "ນາງ ພຸດມະນີ ເມືອງຈັນ", gender: "Female" },
+            { province: "Salavan", district: "Toumlan", facility: "HC Tambeng", hwId: "411591", name: "ທ ໂສນ ແສນຄຳບົວທອນ", gender: "Male" },
+            { province: "Salavan", district: "Toumlan", facility: "HC Tambeng", hwId: "411592", name: "ນ ຕິມ ດາລາວົງຈິດ", gender: "Female" }
+        ];
+
+        let healthWorkers = [];
+
+        // ດຶງຂໍ້ມູນຈາກ LocalStorage ຖ້າມີ (ເພື່ອໃຫ້ຂໍ້ມູນໃໝ່ຍັງຢູ່ເຖິງຈະ Refresh ໜ້າເວັບ)
+        try {
+            const savedData = localStorage.getItem('css_health_workers');
+            if (savedData) {
+                healthWorkers = JSON.parse(savedData);
+            } else {
+                healthWorkers = [...defaultHealthWorkers];
+                localStorage.setItem('css_health_workers', JSON.stringify(healthWorkers));
+            }
+        } catch (e) {
+            healthWorkers = [...defaultHealthWorkers];
+        }
+
+        // ຟັງຊັນກັອບປີ້ລະຫັດ (ຮອງຮັບ iframe)
+        function copyHWID(text, btnElement) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                // ປ່ຽນໄອຄອນເປັນໝາຍຕິກຖືກຊົ່ວຄາວ
+                const icon = btnElement.querySelector('i');
+                icon.className = "fa-solid fa-check text-green-500";
+                setTimeout(() => {
+                    icon.className = "fa-regular fa-copy";
+                }, 1500);
+            } catch (err) {
+                alert('ບໍ່ສາມາດກັອບປີ້ໄດ້');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('hw-table-body');
+            if (!tbody) return; 
+            
+            tbody.innerHTML = ''; 
+            
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-gray-500">ບໍ່ພົບຂໍ້ມູນທີ່ທ່ານຄົ້ນຫາ</td></tr>';
+                return;
+            }
+            
+            data.forEach(hw => {
+                const tr = document.createElement('tr');
+                tr.className = "bg-white border-b hover:bg-blue-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">${hw.name}</td>
+                    <td class="px-4 py-3">
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono bg-gray-100 px-2 py-1 rounded text-blue-700">${hw.hwId}</span>
+                            <button onclick="copyHWID('${hw.hwId}', this)" class="text-gray-400 hover:text-blue-600 transition-colors p-1" title="ກັອບປີ້ລະຫັດ">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3">${hw.gender === 'Female' ? '<span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full text-xs">ຍິງ</span>' : '<span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">ຊາຍ</span>'}</td>
+                    <td class="px-4 py-3">${hw.facility}</td>
+                    <td class="px-4 py-3">${hw.district}</td>
+                    <td class="px-4 py-3">${hw.province}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function handleSearch(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const filteredData = healthWorkers.filter(hw => 
+                hw.name.toLowerCase().includes(searchTerm) || 
+                hw.hwId.includes(searchTerm) 
+            );
+            renderTable(filteredData);
+        }
+
+        // --- ລະບົບເພີ່ມຂໍ້ມູນໃໝ່ ---
+        const modal = document.getElementById('addStaffModal');
+        
+        function openModal() {
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.getElementById('addStaffForm').reset();
+        }
+
+        function handleAddStaff(e) {
+            e.preventDefault();
+            
+            const newEntry = {
+                name: document.getElementById('newName').value.trim(),
+                hwId: document.getElementById('newId').value.trim(),
+                gender: document.getElementById('newGender').value,
+                facility: document.getElementById('newFacility').value.trim(),
+                district: document.getElementById('newDistrict').value.trim(),
+                province: document.getElementById('newProvince').value.trim()
+            };
+
+            // ເພີ່ມເຂົ້າ Array ດ້ານໜ້າສຸດ
+            healthWorkers.unshift(newEntry);
+            
+            // ບັນທຶກລົງ LocalStorage
+            try {
+                localStorage.setItem('css_health_workers', JSON.stringify(healthWorkers));
+            } catch(e) {
+                console.warn('ບໍ່ສາມາດບັນທຶກລົງ LocalStorage ໄດ້');
+            }
+
+            // ອັບເດດຕາຕະລາງ
+            renderTable(healthWorkers);
+            
+            // ປິດ Modal
+            closeModal();
+            
+            // ລຶບຊ່ອງຄົ້ນຫາ (ຖ້າມີ) ເພື່ອໃຫ້ເຫັນຂໍ້ມູນໃໝ່ທີ່ຫາກໍ່ເພີ່ມ
+            const searchInput = document.getElementById('searchInput');
+            if(searchInput) searchInput.value = '';
+        }
+
+        // ເມື່ອໜ້າເວັບໂຫຼດສຳເລັດ ໃຫ້ສະແດງຂໍ້ມູນທັງໝົດກ່ອນ
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', handleSearch);
+                renderTable(healthWorkers); 
+            }
+        });
+    </script>
 </body>
 </html>
