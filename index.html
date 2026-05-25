@@ -1,559 +1,18 @@
-<!DOCTYPE html>
-<html lang="lo">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ລະບົບແບບຟອມຕິດຕາມກວດກາ (CSS Tools)</title>
-    
-    <!-- Tailwind CSS ສຳລັບການອອກແບບ -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome ສຳລັບ Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Noto Sans Lao Font ສຳລັບພາສາລາວ -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Noto Sans Lao', sans-serif;
-            background-color: #f3f4f6;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        }
-        .transition-all {
-            transition-property: all;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 300ms;
-        }
-    </style>
-</head>
-<body class="text-gray-800 antialiased min-h-screen flex flex-col">
-
-    <!-- Header Section -->
-    <header class="bg-blue-600 text-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
-            <div>
-                <h1 class="text-3xl font-bold flex items-center justify-center md:justify-start gap-3">
-                    <i class="fa-solid fa-notes-medical text-white/90"></i>
-                    ລະບົບແບບຟອມຕິດຕາມກວດກາ
-                </h1>
-                <p class="mt-2 text-blue-100 text-lg">ສູນລວມລິ້ງ KoboToolbox ສຳລັບ CSS Tools</p>
-            </div>
-            <div class="mt-4 md:mt-0">
-                <div class="bg-blue-700/50 rounded-lg px-4 py-2 text-sm backdrop-blur-sm border border-blue-500/30">
-                    <i class="fa-solid fa-clock mr-2"></i> ອັບເດດຫຼ້າສຸດ: ເດືອນພຶດສະພາ 2026
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        
-        <!-- Grid Layout for Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Card 1: Well Child -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover transition-all flex flex-col h-full">
-                <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100">
-                    <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-child"></i>
-                    </div>
-                    <h2 class="text-xl font-semibold text-gray-800">ເດັກດີ (Well Child)</h2>
-                </div>
-                <div class="flex-grow space-y-3">
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/s9trb7fz" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-green-50 hover:text-green-700 transition-colors border border-gray-200 hover:border-green-200">
-                            <i class="fa-solid fa-file-contract text-gray-400 group-hover:text-green-500 mr-3"></i>
-                            <span class="font-medium text-sm">Tool2B.1/5.2 Well Child DOC</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/aJoohNJTVFac8YTAhDnyni/export-settings/esAUK56w64wN7Tg882638Kt/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/2sBwbbPO" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-green-50 hover:text-green-700 transition-colors border border-gray-200 hover:border-green-200">
-                            <i class="fa-solid fa-clipboard-user text-gray-400 group-hover:text-green-500 mr-3"></i>
-                            <span class="font-medium text-sm">Tool2B.2/5.1 Well Child CV</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/aZBqxXJRFEBDU27SGmm3wE/export-settings/esUc9CX2jb6MDijTdt6AGmF/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2: Sick Child -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover transition-all flex flex-col h-full">
-                <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100">
-                    <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-briefcase-medical"></i>
-                    </div>
-                    <h2 class="text-xl font-semibold text-gray-800">ເດັກເຈັບ (Sick Child)</h2>
-                </div>
-                <div class="flex-grow space-y-3">
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/ZNdga3BH" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-red-50 hover:text-red-700 transition-colors border border-gray-200 hover:border-red-200">
-                            <i class="fa-solid fa-file-medical text-gray-400 group-hover:text-red-500 mr-3"></i>
-                            <span class="font-medium text-sm">6.1 SICK-Child DOC</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/apvrUQ6SpqqWrUcVpRwWa8/export-settings/espLxcD86DBR4PAnQXdaLTn/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/aNT5RcLc" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-red-50 hover:text-red-700 transition-colors border border-gray-200 hover:border-red-200">
-                            <i class="fa-solid fa-lungs-virus text-gray-400 group-hover:text-red-500 mr-3"></i>
-                            <span class="font-medium text-sm">6.2 SICK-CHILD CV (Pneumonia)</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/anUsg4S64EQ4aXd7JQHqcq/export-settings/essLLxDFXKokQLgdC2mTys3/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/i7dyyORf" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-red-50 hover:text-red-700 transition-colors border border-gray-200 hover:border-red-200">
-                            <i class="fa-solid fa-virus-covid text-gray-400 group-hover:text-red-500 mr-3"></i>
-                            <span class="font-medium text-sm">6.3 SICK CHILD-CV (Diarrhea)</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/azBPxDJsBf9CEYEjVQYTbD/export-settings/esxEk7uEa2FV3e6VGRYCU2B/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3: ANC -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover transition-all flex flex-col h-full">
-                <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100">
-                    <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-person-pregnant"></i>
-                    </div>
-                    <h2 class="text-xl font-semibold text-gray-800">ການດູແລກ່ອນເກີດ (ANC)</h2>
-                </div>
-                <div class="flex-grow space-y-3">
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/afLWR9QJ" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-pink-50 hover:text-pink-700 transition-colors border border-gray-200 hover:border-pink-200">
-                            <i class="fa-solid fa-file-medical-alt text-gray-400 group-hover:text-pink-500 mr-3"></i>
-                            <span class="font-medium text-sm">Tool2A1/1.2 ANC Doc</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/aGCtFUQwxAj3kjQEceroed/export-settings/esdKWr2u8E2rYWRVvLeca2B/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/YbGGxI8O" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-pink-50 hover:text-pink-700 transition-colors border border-gray-200 hover:border-pink-200">
-                            <i class="fa-solid fa-stethoscope text-gray-400 group-hover:text-pink-500 mr-3"></i>
-                            <span class="font-medium text-sm">Tool2A2/1.1 ANC CV</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/asPxpahN93CZ8DFKobbYAQ/export-settings/esKVMCct4xgKbH2n5Uqdxib/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4: IPC + EENC -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover transition-all flex flex-col h-full">
-                <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100">
-                    <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-hands-bubbles"></i>
-                    </div>
-                    <h2 class="text-xl font-semibold text-gray-800">IPC + EENC</h2>
-                </div>
-                <div class="flex-grow space-y-3">
-                    
-                    <!-- Updated 2.2 IPC+EENC_DOC with Download Button -->
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/eT53tdZX" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-blue-50 hover:text-blue-700 transition-colors border border-gray-200 hover:border-blue-200">
-                            <i class="fa-solid fa-shield-virus text-gray-400 group-hover:text-blue-500 mr-3"></i>
-                            <span class="font-medium text-sm">2.2 IPC+EENC_DOC</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/aqqbV92KvHPXaaHb7pyZFt/export-settings/esfaQ6GBAXfv5EpjmoyCFxC/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                    
-                    <!-- Updated 2.1 IPC+EENC_CV with Download Button -->
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/1mAYju1z" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-blue-50 hover:text-blue-700 transition-colors border border-gray-200 hover:border-blue-200">
-                            <i class="fa-solid fa-baby-carriage text-gray-400 group-hover:text-blue-500 mr-3"></i>
-                            <span class="font-medium text-sm">2.1 IPC+EENC_CV</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/aHhRmKCJuhui3buoWRXHSn/export-settings/esSnDPH8ssd9SnPGrUiMMwV/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5: Nutrition -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover transition-all flex flex-col h-full">
-                <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100">
-                    <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-bowl-food"></i>
-                    </div>
-                    <h2 class="text-xl font-semibold text-gray-800">ໂພຊະນາການ (Nutrition)</h2>
-                </div>
-                <div class="flex-grow space-y-3">
-                    <!-- MAM -->
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/tMXpOcOm" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-orange-50 hover:text-orange-700 transition-colors border border-gray-200 hover:border-orange-200">
-                            <i class="fa-solid fa-file-waveform text-gray-400 group-hover:text-orange-500 mr-3"></i>
-                            <span class="font-medium text-sm">MAM</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/acN6Vbhx8JSr8htV3auWPA/export-settings/esgGzxkh7Xxk6Ev3T58p5nK/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                    <!-- SAM with no complications -->
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/n1bvFClb" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-orange-50 hover:text-orange-700 transition-colors border border-gray-200 hover:border-orange-200">
-                            <i class="fa-solid fa-file-medical text-gray-400 group-hover:text-orange-500 mr-3"></i>
-                            <span class="font-medium text-sm">SAM with no complications</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/aJbFGrCgHLhATTuHzxtfCr/export-settings/esyXxmQdtKZW92JqGSYCuS4/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                    <!-- SAM with complications -->
-                    <div class="flex items-stretch gap-2">
-                        <a href="https://ee-eu.kobotoolbox.org/x/gsGqx54Q" target="_blank" rel="noopener noreferrer" class="group flex-grow flex items-center p-3 rounded-lg bg-gray-50 hover:bg-orange-50 hover:text-orange-700 transition-colors border border-gray-200 hover:border-orange-200">
-                            <i class="fa-solid fa-file-circle-exclamation text-gray-400 group-hover:text-orange-500 mr-3"></i>
-                            <span class="font-medium text-sm">SAM with complications</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-xs"></i>
-                        </a>
-                        <a href="https://eu.kobotoolbox.org/api/v2/assets/a975FF4VEJmmB3Lrop39Co/export-settings/esw3cHGGFkEqDYce7QsuoBJ/data.xlsx" title="ດາວໂຫຼດຂໍ້ມູນ Excel" class="flex-shrink-0 flex items-center justify-center px-4 rounded-lg bg-gray-50 hover:bg-green-50 text-gray-500 hover:text-green-600 border border-gray-200 hover:border-green-200 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ພາກສ່ວນຄົ້ນຫາຂໍ້ມູນພະນັກງານ (Data Search Section) -->
-        <div class="mt-12 bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-3">
-                    <i class="fa-solid fa-user-nurse text-blue-600"></i> 
-                    ຄົ້ນຫາຂໍ້ມູນພະນັກງານສາທາລະນະສຸກ
-                </h2>
-                <div class="flex w-full md:w-auto gap-2">
-                    <div class="relative flex-grow md:w-64">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
-                        </div>
-                        <input type="text" id="searchInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="ພິມຊື່ ຫຼື ລະຫັດ...">
-                    </div>
-                    <button onclick="openModal()" class="flex-shrink-0 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-plus"></i> ເພີ່ມລາຍຊື່ໃໝ່
-                    </button>
-                </div>
-            </div>
-            
-            <div class="overflow-x-auto rounded-lg border border-gray-200">
-                <table class="w-full text-sm text-left text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b">
-                        <tr>
-                            <th scope="col" class="px-4 py-3">ຊື່ ແລະ ນາມສະກຸນ</th>
-                            <th scope="col" class="px-4 py-3">ລະຫັດພະນັກງານ</th>
-                            <th scope="col" class="px-4 py-3">ເພດ</th>
-                            <th scope="col" class="px-4 py-3">ສະຖານທີ່ (HC)</th>
-                            <th scope="col" class="px-4 py-3">ເມືອງ</th>
-                            <th scope="col" class="px-4 py-3">ແຂວງ</th>
-                        </tr>
-                    </thead>
-                    <tbody id="hw-table-body">
-                        <!-- ຂໍ້ມູນຈະຖືກສະແດງຢູ່ນີ້ຜ່ານ JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-            <div class="mt-4 text-xs text-gray-400 text-right">
-                * ສະແດງຂໍ້ມູນເບື້ອງຕົ້ນຈາກໄຟລ໌ Excel (CSV)
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="mt-12 bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-headset text-blue-600"></i> 
-                ຕິດຕໍ່ພົວພັນທີມງານ
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                <!-- M&E Team -->
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-users text-gray-400"></i> ທີມງານຕິດຕາມປະເມີນຜົນ
-                    </h3>
-                    <div class="space-y-3">
-                        <!-- Person 1 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ເກີດ ຊຸມພົນພັກດີ</h4>
-                                <p class="text-xs text-gray-500">ແຂວງສະຫວັນນະເຂດ</p>
-                                <a href="https://wa.me/8562058800221" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 58 800 221 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 2 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ຖາວອນ ໄຊຍະບຸດ</h4>
-                                <p class="text-xs text-gray-500">ແຂວງອຸດົມໄຊ</p>
-                                <a href="https://wa.me/8562022248543" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 222 48 543 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 3 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ລັດຕະນາ ພົມມະວົງສາ (ປິກ)</h4>
-                                <p class="text-xs text-gray-500">PPM ແຂວງຜົ້ງສາລີ</p>
-                                <a href="https://wa.me/8562028982614" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 28 982 614 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 4 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ທິບພາພອນ ໄຊມູນວົງ (ໂຕໝີ)</h4>
-                                <p class="text-xs text-gray-500">ແຂວງສາລະວັນ</p>
-                                <a href="https://wa.me/8562077789962" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 77 789 962 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 5 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ທະລາລິນ ວົງສອນເພັດ (ຕ່າງ)</h4>
-                                <p class="text-xs text-gray-500">ແຂວງເຊກອງ</p>
-                                <a href="https://wa.me/8562058891989" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 58 891 989 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 6: Data Check -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">Houngthip</h4>
-                                <p class="text-xs text-gray-500">Data Check</p>
-                                <a href="https://wa.me/8562054292226" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 54 292 226 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Clinical Team -->
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-user-doctor text-gray-400"></i> ທີມ ວິຊາການ Clinical
-                    </h3>
-                    <div class="space-y-3">
-                        <!-- Person 1 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ວິລະດາ ວັນທານຸ (ຕິຕີ)</h4>
-                                <p class="text-xs text-gray-500">CSS ຂັ້ນສູນກາງ</p>
-                                <a href="https://wa.me/8562076000674" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 76 000 674 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 2 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ຈັນຄຳ</h4>
-                                <p class="text-xs text-gray-500">PSL</p>
-                                <a href="https://wa.me/8562092262299" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 92 262 299 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 3 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ຊໍລີ້ ຢາງ</h4>
-                                <p class="text-xs text-gray-500">ODX</p>
-                                <a href="https://wa.me/8562094444734" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 94 444 734 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 4 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ນັນທະວົງ ບຸນໄພວັນ</h4>
-                                <p class="text-xs text-gray-500">SVK</p>
-                                <a href="https://wa.me/8562091142394" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 91 142 394 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 5 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ປີຊາ ບຸດສະດີ</h4>
-                                <p class="text-xs text-gray-500">SLV</p>
-                                <a href="https://wa.me/8562096264757" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 96 264 757 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Person 6 -->
-                        <div class="flex items-start gap-4 p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
-                            <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800 text-sm">ໄພບູນ ວິໄລວົງ</h4>
-                                <p class="text-xs text-gray-500">SK</p>
-                                <a href="https://wa.me/8562099261459" target="_blank" class="text-sm text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1 mt-1">
-                                    +856 20 99 261 459 <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-gray-500">
-                &copy; 2026 CSS Tools Dashboard. ສະຫງວນລິຂະສິດ.
-            </p>
-            <p class="text-sm text-gray-500 flex items-center">
-                ອອກແບບສຳລັບໜ້າວຽກສາທາລະນະສຸກ <i class="fa-solid fa-heart text-red-500 mx-2"></i>
-            </p>
-        </div>
-    </footer>
-
-    <!-- Modal ສຳລັບເພີ່ມຂໍ້ມູນໃໝ່ -->
-    <div id="addStaffModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4 transition-opacity">
-        <div class="bg-white rounded-xl shadow-lg w-full max-w-md mx-auto overflow-hidden">
-            <div class="bg-blue-600 px-6 py-4 flex justify-between items-center text-white">
-                <h3 class="text-lg font-bold">ເພີ່ມລາຍຊື່ພະນັກງານໃໝ່</h3>
-                <button onclick="closeModal()" class="text-white/80 hover:text-white">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-            <form id="addStaffForm" onsubmit="handleAddStaff(event)" class="p-6 space-y-4">
-                <div>
-                    <label class="block mb-1 text-sm font-medium text-gray-900">ຊື່ ແລະ ນາມສະກຸນ <span class="text-red-500">*</span></label>
-                    <input type="text" id="newName" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຕົວຢ່າງ: ນາງ ໃຈດີ...">
-                </div>
-                <div>
-                    <label class="block mb-1 text-sm font-medium text-gray-900">ລະຫັດພະນັກງານ (HW ID) <span class="text-red-500">*</span></label>
-                    <input type="text" id="newId" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຕົວຢ່າງ: 101001">
-                </div>
-                <div>
-                    <label class="block mb-1 text-sm font-medium text-gray-900">ເພດ</label>
-                    <select id="newGender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                        <option value="Female">ຍິງ (Female)</option>
-                        <option value="Male">ຊາຍ (Male)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block mb-1 text-sm font-medium text-gray-900">ສະຖານທີ່ (HC)</label>
-                    <input type="text" id="newFacility" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຊື່ສຸກສາລາ...">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block mb-1 text-sm font-medium text-gray-900">ເມືອງ</label>
-                        <input type="text" id="newDistrict" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຊື່ເມືອງ...">
-                    </div>
-                    <div>
-                        <label class="block mb-1 text-sm font-medium text-gray-900">ແຂວງ</label>
-                        <input type="text" id="newProvince" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="ຊື່ແຂວງ...">
-                    </div>
-                </div>
-                <div class="pt-4 flex justify-end gap-2">
-                    <button type="button" onclick="closeModal()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">ຍົກເລີກ</button>
-                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">ບັນທຶກຂໍ້ມູນ</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Script ສຳລັບລະບົບຄົ້ນຫາຂໍ້ມູນ (ຝັງຂໍ້ມູນຈາກໄຟລ໌ CSV) -->
-    <script>
-        // ຂໍ້ມູນພະນັກງານສາທາລະນະສຸກເບື້ອງຕົ້ນ
+<script>
+        // ຂໍ້ມູນພະນັກງານສາທາລະນະສຸກເບື້ອງຕົ້ນ (ຕົວຢ່າງຈາກໄຟລ໌)
         const defaultHealthWorkers = [
             { province: "Phongsaly", district: "Samphanh", facility: "HC Namhang", hwId: "101002", name: "ນາງຈັນມະນີ ວື", gender: "Female" },
             { province: "Phongsaly", district: "Samphanh", facility: "HC Namhang", hwId: "101003", name: "ນາງ ພິມແກ້ວ ສິລິຄຳ", gender: "Female" },
             { province: "Phongsaly", district: "Samphanh", facility: "HC Laoleo", hwId: "102004", name: "ນາງ ຈັນສີ ຜົມມະສິງ", gender: "Female" },
-            { province: "Phongsaly", district: "Samphanh", facility: "HC Laoleo", hwId: "102006", name: "ນາງ ຈັນສະຫວັນ", gender: "Female" },
             { province: "Phongsaly", district: "Samphanh", facility: "HC Sanamha", hwId: "104012", name: "ນາງ ໄສ ສົມະນີ", gender: "Female" },
-            { province: "Phongsaly", district: "Samphanh", facility: "HC Sanamha", hwId: "104013", name: "ນາງ ສົມພັດ ອຸດວງວິໄລ", gender: "Female" },
-            { province: "Salavan", district: "Salavan", facility: "HC Houaylat", hwId: "411432", name: "ນາງ ແສງຫຼ້າ ໄຊຍະວົງ", gender: "Female" },
             { province: "Salavan", district: "Salavan", facility: "HC Nadonkhouang", hwId: "411441", name: "ນາງ ຄຳສັກສິດ ຈັນທະກຸມມານ", gender: "Female" },
-            { province: "Salavan", district: "Salavan", facility: "HC Nadonkhouang", hwId: "411442", name: "ນາງ ທິບພະຈັນ ອະນຸສັກ", gender: "Female" },
             { province: "Salavan", district: "Salavan", facility: "HC Napho", hwId: "411451", name: "ນາງ ຈັນສະໝອນ ໄກຍະກອນ", gender: "Female" },
-            { province: "Salavan", district: "Salavan", facility: "HC Napho", hwId: "411452", name: "ນາງ ພຸດມະນີ ເມືອງຈັນ", gender: "Female" },
-            { province: "Salavan", district: "Toumlan", facility: "HC Tambeng", hwId: "411591", name: "ທ ໂສນ ແສນຄຳບົວທອນ", gender: "Male" },
-            { province: "Salavan", district: "Toumlan", facility: "HC Tambeng", hwId: "411592", name: "ນ ຕິມ ດາລາວົງຈິດ", gender: "Female" }
+            { province: "Salavan", district: "Toumlan", facility: "HC Tambeng", hwId: "411591", name: "ທ ໂສນ ແສນຄຳບົວທອນ", gender: "Male" }
         ];
 
         let healthWorkers = [];
 
-        // ດຶງຂໍ້ມູນຈາກ LocalStorage ຖ້າມີ (ເພື່ອໃຫ້ຂໍ້ມູນໃໝ່ຍັງຢູ່ເຖິງຈະ Refresh ໜ້າເວັບ)
+        // ດຶງຂໍ້ມູນຈາກ LocalStorage ຖ້າມີ
         try {
             const savedData = localStorage.getItem('css_health_workers');
             if (savedData) {
@@ -566,7 +25,6 @@
             healthWorkers = [...defaultHealthWorkers];
         }
 
-        // ຟັງຊັນກັອບປີ້ລະຫັດ (ຮອງຮັບ iframe)
         function copyHWID(text, btnElement) {
             const textArea = document.createElement("textarea");
             textArea.value = text;
@@ -577,7 +35,6 @@
             textArea.select();
             try {
                 document.execCommand('copy');
-                // ປ່ຽນໄອຄອນເປັນໝາຍຕິກຖືກຊົ່ວຄາວ
                 const icon = btnElement.querySelector('i');
                 icon.className = "fa-solid fa-check text-green-500";
                 setTimeout(() => {
@@ -604,48 +61,87 @@
                 const tr = document.createElement('tr');
                 tr.className = "bg-white border-b hover:bg-blue-50 transition-colors";
                 tr.innerHTML = `
-                    <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">${hw.name}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">${hw.name || '-'}</td>
                     <td class="px-4 py-3">
                         <div class="flex items-center gap-2">
-                            <span class="font-mono bg-gray-100 px-2 py-1 rounded text-blue-700">${hw.hwId}</span>
+                            <span class="font-mono bg-gray-100 px-2 py-1 rounded text-blue-700">${hw.hwId || '-'}</span>
                             <button onclick="copyHWID('${hw.hwId}', this)" class="text-gray-400 hover:text-blue-600 transition-colors p-1" title="ກັອບປີ້ລະຫັດ">
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
                     </td>
-                    <td class="px-4 py-3">${hw.gender === 'Female' ? '<span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full text-xs">ຍິງ</span>' : '<span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">ຊາຍ</span>'}</td>
-                    <td class="px-4 py-3">${hw.facility}</td>
-                    <td class="px-4 py-3">${hw.district}</td>
-                    <td class="px-4 py-3">${hw.province}</td>
+                    <td class="px-4 py-3">${(hw.gender && hw.gender.toLowerCase() === 'female') ? '<span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full text-xs">ຍິງ</span>' : '<span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">ຊາຍ</span>'}</td>
+                    <td class="px-4 py-3">${hw.facility || '-'}</td>
+                    <td class="px-4 py-3">${hw.district || '-'}</td>
+                    <td class="px-4 py-3">${hw.province || '-'}</td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
+        // ຟັງຊັນຄົ້ນຫາແບບໃໝ່ (ຄົ້ນຫາໄດ້ທຸກຖັນ)
         function handleSearch(e) {
             const searchTerm = e.target.value.toLowerCase().trim();
-            const filteredData = healthWorkers.filter(hw => 
-                hw.name.toLowerCase().includes(searchTerm) || 
-                hw.hwId.includes(searchTerm) 
-            );
+            const filteredData = healthWorkers.filter(hw => {
+                const sName = (hw.name || '').toLowerCase();
+                const sId = (hw.hwId || '').toLowerCase();
+                const sFacility = (hw.facility || '').toLowerCase();
+                const sDistrict = (hw.district || '').toLowerCase();
+                const sProvince = (hw.province || '').toLowerCase();
+                
+                return sName.includes(searchTerm) || 
+                       sId.includes(searchTerm) ||
+                       sFacility.includes(searchTerm) ||
+                       sDistrict.includes(searchTerm) ||
+                       sProvince.includes(searchTerm);
+            });
             renderTable(filteredData);
         }
 
-        // --- ລະບົບເພີ່ມຂໍ້ມູນໃໝ່ ---
-        const modal = document.getElementById('addStaffModal');
-        
-        function openModal() {
-            modal.classList.remove('hidden');
+        // ຟັງຊັນອ່ານໄຟລ໌ CSV ທີ່ອັບໂຫຼດເຂົ້າລະບົບ
+        function importCSV(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const rows = text.split('\n');
+                const newWorkers = [];
+                
+                // ເລີ່ມແຖວທີ 1 (ຂ້າມ Header ໄປ)
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i].split(',');
+                    // ໂຄງສ້າງ: Pcode,Dcode,Province,District,Hcode,Facility,HW ID,Participant ID,Name,Gender
+                    if (cols.length >= 10) {
+                        newWorkers.push({
+                            province: cols[2].trim(),
+                            district: cols[3].trim(),
+                            facility: cols[5].trim(),
+                            hwId: cols[6].trim(),
+                            name: cols[8].trim(),
+                            gender: cols[9].trim().replace('\r', '')
+                        });
+                    }
+                }
+                
+                if(newWorkers.length > 0) {
+                    healthWorkers = newWorkers;
+                    localStorage.setItem('css_health_workers', JSON.stringify(healthWorkers));
+                    renderTable(healthWorkers);
+                    alert(`ສຳເລັດ! ອັບເດດຂໍ້ມູນພະນັກງານຈຳນວນ ${newWorkers.length} ຄົນ ເຂົ້າສູ່ລະບົບແລ້ວ.`);
+                }
+            };
+            reader.readAsText(file);
         }
 
-        function closeModal() {
-            modal.classList.add('hidden');
-            document.getElementById('addStaffForm').reset();
-        }
+        // --- ລະບົບເພີ່ມຂໍ້ມູນໃໝ່ (Modal) ---
+        const modal = document.getElementById('addStaffModal');
+        function openModal() { modal.classList.remove('hidden'); }
+        function closeModal() { modal.classList.add('hidden'); document.getElementById('addStaffForm').reset(); }
 
         function handleAddStaff(e) {
             e.preventDefault();
-            
             const newEntry = {
                 name: document.getElementById('newName').value.trim(),
                 hwId: document.getElementById('newId').value.trim(),
@@ -655,28 +151,15 @@
                 province: document.getElementById('newProvince').value.trim()
             };
 
-            // ເພີ່ມເຂົ້າ Array ດ້ານໜ້າສຸດ
             healthWorkers.unshift(newEntry);
+            try { localStorage.setItem('css_health_workers', JSON.stringify(healthWorkers)); } catch(e) {}
             
-            // ບັນທຶກລົງ LocalStorage
-            try {
-                localStorage.setItem('css_health_workers', JSON.stringify(healthWorkers));
-            } catch(e) {
-                console.warn('ບໍ່ສາມາດບັນທຶກລົງ LocalStorage ໄດ້');
-            }
-
-            // ອັບເດດຕາຕະລາງ
             renderTable(healthWorkers);
-            
-            // ປິດ Modal
             closeModal();
-            
-            // ລຶບຊ່ອງຄົ້ນຫາ (ຖ້າມີ) ເພື່ອໃຫ້ເຫັນຂໍ້ມູນໃໝ່ທີ່ຫາກໍ່ເພີ່ມ
             const searchInput = document.getElementById('searchInput');
             if(searchInput) searchInput.value = '';
         }
 
-        // ເມື່ອໜ້າເວັບໂຫຼດສຳເລັດ ໃຫ້ສະແດງຂໍ້ມູນທັງໝົດກ່ອນ
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
@@ -685,5 +168,3 @@
             }
         });
     </script>
-</body>
-</html>
