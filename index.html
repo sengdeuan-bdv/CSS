@@ -252,13 +252,20 @@
                     <i class="fa-solid fa-user-nurse text-blue-600"></i> 
                     ຄົ້ນຫາຂໍ້ມູນພະນັກງານສາທາລະນະສຸກ
                 </h2>
-                <div class="flex w-full md:w-auto gap-2">
-                    <div class="relative flex-grow md:w-64">
+                <div class="flex flex-wrap w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:w-72">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
                         </div>
-                        <input type="text" id="searchInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="ພິມຊື່ ຫຼື ລະຫັດ...">
+                        <input type="text" id="searchInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="ຄົ້ນຫາ: ຊື່, ລະຫັດ, ສະຖານທີ່, ເມືອງ, ແຂວງ...">
                     </div>
+                    
+                    <!-- ປຸ່ມອັບໂຫຼດ CSV ສຳລັບຝັງເຂົ້າ Cache -->
+                    <label class="cursor-pointer flex-shrink-0 bg-green-600 hover:bg-green-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-file-csv"></i> ອັບໂຫຼດ CSV
+                        <input type="file" id="csvFileInput" accept=".csv" class="hidden" onchange="importCSV(event)">
+                    </label>
+
                     <button onclick="openModal()" class="flex-shrink-0 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
                         <i class="fa-solid fa-plus"></i> ເພີ່ມລາຍຊື່ໃໝ່
                     </button>
@@ -283,7 +290,7 @@
                 </table>
             </div>
             <div class="mt-4 text-xs text-gray-400 text-right">
-                * ສະແດງຂໍ້ມູນເບື້ອງຕົ້ນຈາກໄຟລ໌ Excel (CSV)
+                * ສະແດງຂໍ້ມູນພະນັກງານ (ສາມາດຄົ້ນຫາດ້ວຍ ຊື່, ລະຫັດ, ສະຖານທີ່, ເມືອງ ແລະ ແຂວງ)
             </div>
         </div>
 
@@ -604,19 +611,19 @@
                 const tr = document.createElement('tr');
                 tr.className = "bg-white border-b hover:bg-blue-50 transition-colors";
                 tr.innerHTML = `
-                    <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">${hw.name}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">${hw.name || '-'}</td>
                     <td class="px-4 py-3">
                         <div class="flex items-center gap-2">
-                            <span class="font-mono bg-gray-100 px-2 py-1 rounded text-blue-700">${hw.hwId}</span>
+                            <span class="font-mono bg-gray-100 px-2 py-1 rounded text-blue-700">${hw.hwId || '-'}</span>
                             <button onclick="copyHWID('${hw.hwId}', this)" class="text-gray-400 hover:text-blue-600 transition-colors p-1" title="ກັອບປີ້ລະຫັດ">
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
                     </td>
-                    <td class="px-4 py-3">${hw.gender === 'Female' ? '<span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full text-xs">ຍິງ</span>' : '<span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">ຊາຍ</span>'}</td>
-                    <td class="px-4 py-3">${hw.facility}</td>
-                    <td class="px-4 py-3">${hw.district}</td>
-                    <td class="px-4 py-3">${hw.province}</td>
+                    <td class="px-4 py-3">${(hw.gender && hw.gender.toLowerCase() === 'female') ? '<span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full text-xs">ຍິງ</span>' : '<span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">ຊາຍ</span>'}</td>
+                    <td class="px-4 py-3">${hw.facility || '-'}</td>
+                    <td class="px-4 py-3">${hw.district || '-'}</td>
+                    <td class="px-4 py-3">${hw.province || '-'}</td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -624,14 +631,69 @@
 
         function handleSearch(e) {
             const searchTerm = e.target.value.toLowerCase().trim();
-            const filteredData = healthWorkers.filter(hw => 
-                hw.name.toLowerCase().includes(searchTerm) || 
-                hw.hwId.includes(searchTerm) 
-            );
+            const filteredData = healthWorkers.filter(hw => {
+                const sName = (hw.name || '').toLowerCase();
+                const sId = (hw.hwId || '').toLowerCase();
+                const sFacility = (hw.facility || '').toLowerCase();
+                const sDistrict = (hw.district || '').toLowerCase();
+                const sProvince = (hw.province || '').toLowerCase();
+                
+                return sName.includes(searchTerm) || 
+                       sId.includes(searchTerm) ||
+                       sFacility.includes(searchTerm) ||
+                       sDistrict.includes(searchTerm) ||
+                       sProvince.includes(searchTerm);
+            });
             renderTable(filteredData);
         }
 
-        // --- ລະບົບເພີ່ມຂໍ້ມູນໃໝ່ ---
+        // --- ລະບົບອັບໂຫຼດໄຟລ໌ CSV ເພື່ອຝັງຂໍ້ມູນເຂົ້າ Cache ---
+        function importCSV(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const rows = text.split('\n');
+                const newWorkers = [];
+                
+                // ເລີ່ມອ່ານຈາກແຖວທີ 1 ເພື່ອຂ້າມຫົວຂໍ້ (Header)
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i].split(',');
+                    // ອີງຕາມໂຄງສ້າງ: Pcode, Dcode, Province, District, Hcode, Facility, HW ID, Appsheet ID, Name, Gender
+                    if (cols.length >= 10) {
+                        newWorkers.push({
+                            province: cols[2] ? cols[2].trim() : '',
+                            district: cols[3] ? cols[3].trim() : '',
+                            facility: cols[5] ? cols[5].trim() : '',
+                            hwId: cols[6] ? cols[6].trim() : '',
+                            name: cols[8] ? cols[8].trim() : '',
+                            gender: cols[9] ? cols[9].trim().replace('\r', '') : ''
+                        });
+                    }
+                }
+                
+                if(newWorkers.length > 0) {
+                    healthWorkers = newWorkers;
+                    try {
+                        localStorage.setItem('css_health_workers', JSON.stringify(healthWorkers));
+                    } catch(e) {
+                        console.warn('ບໍ່ສາມາດບັນທຶກລົງ LocalStorage ໄດ້');
+                    }
+                    renderTable(healthWorkers);
+                    alert(`ສຳເລັດ! ອັບເດດຂໍ້ມູນພະນັກງານຈຳນວນ ${newWorkers.length} ຄົນ ເຂົ້າສູ່ລະບົບ (Cache) ແລ້ວ.`);
+                } else {
+                    alert('ບໍ່ພົບຂໍ້ມູນໃນໄຟລ໌ CSV ຫຼື ຮູບແບບໄຟລ໌ບໍ່ຖືກຕ້ອງ.');
+                }
+                
+                // ຣີເຊັດ input ເພື່ອໃຫ້ສາມາດເລືອກໄຟລ໌ເດີມອັບໂຫຼດອີກຄັ້ງໄດ້
+                event.target.value = '';
+            };
+            reader.readAsText(file);
+        }
+
+        // --- ລະບົບເພີ່ມຂໍ້ມູນໃໝ່ດ້ວຍຕົນເອງ (Modal) ---
         const modal = document.getElementById('addStaffModal');
         
         function openModal() {
